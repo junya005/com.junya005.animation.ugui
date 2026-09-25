@@ -28,10 +28,6 @@ namespace junya005.Animation.uGUI
     /// </summary>
     public struct Easing
     {
-        // Back系のイージング関数に使用する定数
-        const float c1 = 1.70158f;
-        const float c3 = c1 + 1;
-
         private EaseType _currentEaseType;
 
         public Easing(EaseType easeType = EaseType.Linear)
@@ -61,48 +57,37 @@ namespace junya005.Animation.uGUI
             switch (_currentEaseType)
             {
                 case EaseType.InQuad:
-                    // https://easings.net/#easeInQuad
-                    result = t * t;
+                    result = EasingFunction.InQuad(t);
                     break;
                 case EaseType.OutQuad:
-                    // https://easings.net/#easeOutQuad
-                    result = 1 - (1 - t) * (1 - t);
+                    result = EasingFunction.OutQuad(t);
                     break;
                 case EaseType.InOutQuad:
-                    // https://easings.net/#easeInOutQuad
-                    result = t < 0.5 ? 2 * t * t : 1 - ((-2 * t + 2) * (-2 * t + 2)) / 2;
+                    result = EasingFunction.InOutQuad(t);
                     break;
                 case EaseType.InCubic:
-                    // https://easings.net/#easeInCubic
-                    result = t * t * t;
+                    result = EasingFunction.InCubic(t);
                     break;
                 case EaseType.OutCubic:
-                    // https://easings.net/#easeOutCubic
-                    result = 1 - ((1 - t) * (1 - t) * (1 - t));
+                    result = EasingFunction.OutCubic(t);
                     break;
                 case EaseType.InOutCubic:
-                    // https://easings.net/#easeInOutCubic
-                    result = t < 0.5 ? (4 * t * t * t) : (1 - ((-2 * t + 2) * (-2 * t + 2) * (-2 * t + 2)) / 2);
+                    result = EasingFunction.InOutCubic(t);
                     break;
                 case EaseType.InSine:
-                    // https://easings.net/#easeInSine
-                    result = 1 - Mathf.Cos((t * Mathf.PI) / 2);
+                    result = EasingFunction.InSine(t);
                     break;
                 case EaseType.OutSine:
-                    // https://easings.net/#easeOutSine
-                    result = Mathf.Sin((t * Mathf.PI) / 2);
+                    result = EasingFunction.OutSine(t);
                     break;
                 case EaseType.InOutSine:
-                    // https://easings.net/#easeInOutSine
-                    result = -(Mathf.Cos(Mathf.PI * t) - 1) / 2;
+                    result = EasingFunction.InOutSine(t);
                     break;
                 case EaseType.InBack:
-                    // https://easings.net/#easeInBack
-                    result = c3 * t * t * t - c1 * t * t;
+                    result = EasingFunction.InBack(t);
                     break;
                 case EaseType.OutBack:
-                    // https://easings.net/#easeOutBack
-                    result = 1 + c3 * (t - 1) * (t - 1) * (t - 1) + c1 * (t - 1) * (t - 1);
+                    result = EasingFunction.OutBack(t);
                     break;
                 case EaseType.Linear:
                 default:
