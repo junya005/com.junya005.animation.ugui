@@ -1,8 +1,8 @@
 {
-    "name": "com.junya005.ugui-animation",
+    "name": "com.junya005.animation.ugui",
     "version": "1.0.0",
-    "displayName": "UGUI Animations",
-    "description": "UGUI向けのアニメーションをまとめたパッケージです。",
+    "displayName": "uGUI Animations",
+    "description": "uGUI向けのアニメーションをまとめたパッケージです。",
     "unity": "6000.3",
     "author": {
         "name": "junya005",
@@ -12,7 +12,7 @@
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "https://github.com/junya005/com.junya005.ugui-animation.git"
+        "url": "https://github.com/junya005/com.junya005.animation.ugui.git"
     },
     "keywords": [
         "editor",
